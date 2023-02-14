@@ -1,0 +1,41 @@
+<div class="error_cointainer">
+<% if @article.errors.any? %>
+  <h2>The Following Erros Prevented The Article Form Being Saved </h2>
+  <div class="errors_list">
+    <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
+
+<div class="form_cointainer">
+<%= form_with(model: @article, local: true) do |f| %>
+  <div class="form_title">
+    <p>
+      <%= f.label :title %>
+    </p>
+    <p>
+      <%= f.text_field :title %>
+    </p>
+  </div>
+  
+  <div class="form_discription">
+    <p>
+      <%= f.label :description %>
+    </p>
+    <p>
+      <%= f.text_area :description %>
+    </p>
+  </div>
+
+  <div class="form_submit_button">
+    <p>
+      <%= f.submit %>
+    </p>
+  <div>
+
+<% end %>
+</div>

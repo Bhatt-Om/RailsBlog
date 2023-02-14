@@ -1,0 +1,50 @@
+.form_cointainer{
+  display:flex;
+  justify-content: left;
+  border: 1px solid;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding: 10px;
+  width: auto;
+}
+
+.form_title{
+  display: flex;
+  justify-content: space-between;
+}
+.form_title input{
+  width: 80vw;
+  height: 3vh;
+}
+.form_title label{
+  padding: 10px;
+}
+
+.form_discription{
+  display: flex;
+  justify-content: space-between;
+}
+.form_discription textarea{
+  width: 80vw;
+  height: 20vh;
+}
+.form_discription label{
+  padding: 10px;
+}
+
+.form_submit_button{
+  text-align: center;
+}
+
+
+.error_cointainer{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+.errors_list{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}

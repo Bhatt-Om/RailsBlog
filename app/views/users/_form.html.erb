@@ -1,0 +1,50 @@
+<div class="error_cointainer">
+<% if @user.errors.any? %>
+  <h2>The Following Erros Prevented The user Form Being Saved </h2>
+  <div class="errors_list">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
+
+<div class="form_cointainer">
+<%= form_with(model: @user, local: true) do |f| %>
+  <div class="form_title">
+    <p>
+      <%= f.label :username %>
+    </p>
+    <p>
+      <%= f.text_field :username %>
+    </p>
+  </div>
+  
+  <div class="form_title">
+    <p>
+      <%= f.label :email %>
+    </p>
+    <p>
+      <%= f.email_field :email %>
+    </p>
+  </div>
+
+  <div class="form_title">
+    <p>
+      <%= f.label :password %>
+    </p>
+    <p>
+      <%= f.password_field :password %>
+    </p>
+  </div>
+
+  <div class="form_submit_button">
+    <p>
+      <%= f.submit(@user.new_record? ? "Sign up" : "Update account") %>
+    </p>
+  <div>
+
+<% end %>
+</div>
