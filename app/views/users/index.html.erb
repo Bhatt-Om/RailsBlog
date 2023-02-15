@@ -1,0 +1,17 @@
+<h1>List Of All User</h1>
+<br/>
+
+<div class="digg_pagination">
+  <%= will_paginate @users %>
+</div>
+
+<% @users.each do |user| %>
+  <%= link_to user.username , user %><br/>
+  <h5><%= link_to gravatar_for(user, size: 150), user %></h5>
+  <p><%= pluralize(user.articles.count, "article") %></p>
+  <%= link_to "View profile", user %>
+  <%= link_to "Edit profile", edit_user_path(user) %>
+  <div>
+    Joined <%= time_ago_in_words(user.created_at) %> ago
+  </div><br/>
+<% end %>

@@ -1,0 +1,27 @@
+<table class="index_table">
+  <thead>
+    <th>Title</th>
+    <th>Description</th>
+    <th colspan=3>Actions</th>
+    <th>Detail</th>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |artc|  %>
+      <tr>
+        <td><%= artc.title %></td>
+        <td><%= artc.description %></td>
+        <td><span class="button"><%= link_to '[ Show ]', article_path(artc) %></span></td>
+        <td><span class="button"><%=  link_to '[ Edit ]', edit_article_path(artc)%></span></td>
+        <td><span class="button"><%= link_to '[ Delete ]', article_path(artc), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></span></td>
+        <td><small>Created <%= time_ago_in_words(artc.created_at) %> ago, edited <%= time_ago_in_words(artc.updated_at) %> ago</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="create_article_button">
+  <p>
+    <%= link_to '[ Create New Article ]', new_article_path %>
+  </p>
+</div>
