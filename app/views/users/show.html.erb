@@ -1,7 +1,11 @@
 <h1><%= @user.username %>'s profile</h1>
+<%= link_to 'Logout', logout_path, data: {turbo_method: :delete} %>
 
 <%= gravatar_for @user, size: 200 %>
 
 <h3>Articles</h3>
 
+<div class="digg_pagination">
+  <%= will_paginate @articles%>
+</div>
 <%= render 'articles/article' %>
