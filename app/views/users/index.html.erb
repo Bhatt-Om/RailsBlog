@@ -1,6 +1,5 @@
 <h1>List Of All User</h1>
 <br/>
-
 <div class="digg_pagination">
   <%= will_paginate @users %>
 </div>
@@ -9,13 +8,18 @@
   <%= link_to user.username , user %><br/>
   <h5><%= link_to gravatar_for(user, size: 150), user %></h5>
   <p><%= pluralize(user.articles.count, "article") %></p>
-  <%= link_to "View profile", user %>
+  <%= link_to "View profile", user %> || 
   
-  <% if logged_in? && user == current_user %>
-    <%= link_to "Edit profile", edit_user_path(user) %>  
+  <% if logged_in? %>
+    <% if user == current_user %>
+      <%= link_to "Edit profile", edit_user_path(user) %> || 
+    <% end %> 
+    <% if current_user.admin? %> 
+      <%= link_to "Delete profile",user_path(user), data: {turbo_method: :delete, turbo_confirm: "Are You Sure?"} %>
+    <% end %>
   <% end %>
   
-  <div>
+  <div>1
     Joined <%= time_ago_in_words(user.created_at) %> ago
   </div><br/>
 <% end %>
