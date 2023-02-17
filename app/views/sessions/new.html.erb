@@ -1,0 +1,33 @@
+<h1>login </h1>
+
+<%= link_to 'Logout', logout_path, method: :delete %>
+
+<div class="form_cointainer">
+<%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+  
+  <div class="form_title">
+    <p>
+      <%= f.label :email %>
+    </p>
+    <p>
+      <%= f.email_field :email %>
+    </p>
+  </div>
+
+  <div class="form_title">
+    <p>
+      <%= f.label :password %>
+    </p>
+    <p>
+      <%= f.password_field :password %>
+    </p>
+  </div>
+
+  <div class="form_submit_button">
+    <p>
+      <%= f.submit 'login' %>
+    </p>
+  <div>
+
+<% end %>
+</div>
